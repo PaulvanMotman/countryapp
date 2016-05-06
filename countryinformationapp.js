@@ -1,5 +1,4 @@
 var fs = require ('fs')
-var countryname = process.argv[2]
 
 
 function readJason (filename, callback) {
@@ -8,11 +7,7 @@ function readJason (filename, callback) {
 			throw err;
 		}
 		var jsondata = JSON.parse(data)
-		jsondata.forEach(function(country) {
-			if (country.name == countryname) {
-				console.log(country.name + '\n' + country.topLevelDomain)
-			}
-		})
+		callback(jsondata);
 	})
 };
 
